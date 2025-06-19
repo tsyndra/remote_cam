@@ -1,0 +1,7 @@
+services:
+  remote_cam:
+    build: .
+    container_name: remote_cam
+    restart: always
+    environment:
+      - TZ=Europe/Moscow 
