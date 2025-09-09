@@ -192,8 +192,10 @@ def check_camera(
 
                     analysis_frames_checked += 1
                 
+                frames_checked = analysis_frames_checked
+                
                 # Если все проверенные кадры черные, считаем камеру неработающей
-                if analysis_frames_checked > 0 and black_frames_count == analysis_frames_checked:
+                if frames_checked > 0 and black_frames_count == frames_checked:
                     if is_podolsk:
                         logging.warning(f"Подольск: камера {url} показывает черное изображение")
                     elif is_etalon:
@@ -201,8 +203,6 @@ def check_camera(
                     else:
                         print(f"Камера {url} показывает черное изображение")
                     return False, {'status': 'black_frames', 'frames_checked': frames_checked}
-                
-                frames_checked = analysis_frames_checked
                 
                 if attempt > 0:
                     success_msg = f"Камера {url} заработала с {attempt + 1} попытки"
