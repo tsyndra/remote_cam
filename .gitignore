@@ -137,6 +137,7 @@ Thumbs.db
 
 # Project specific
 logs/
+camera_screenshots/
 *.log
 nomenclature_cache.json
 nomenclature_cache_date.txt
