@@ -44,14 +44,14 @@ BRANCHES = {
     "Алфавит": "rtsp://admin:6J5W-wck@82.149.223.218:554/cam/realmonitor?channel={}&subtype=00",
     "Бпарк": "rtsp://admin:6J5W-wck@185.43.198.90:554/cam/realmonitor?channel={}&subtype=00",
     "Ватутинки": "rtsp://admin:6J5W-wck@88.210.49.169:554/cam/realmonitor?channel={}&subtype=00",
-    "Восток": "rtsp://admin:6J5W-wck@62.217.190.201:554/cam/realmonitor?channel={}&subtype=00",
+    "Восток": "rtsp://admin:6J5W-wck@62.217.187.100:554/cam/realmonitor?channel={}&subtype=00",
     "Испания": "rtsp://admin:6J5W-wck@46.242.38.131:554/cam/realmonitor?channel={}&subtype=00",
     "Коммунарка": "rtsp://admin:6J5W-wck@94.102.123.173:554/cam/realmonitor?channel={}&subtype=00",
     "Луга": "rtsp://admin:6J5W-wck@185.136.76.134:554/cam/realmonitor?channel={}&subtype=00",
     "Лучи": "rtsp://admin:6J5W-wck@83.237.37.58:554/cam/realmonitor?channel={}&subtype=00",
     "Московский": "rtsp://admin:6J5W-wck@5.228.14.150:554/cam/realmonitor?channel={}&subtype=00",
-    "Подольск": "rtsp://admin:6J5W-wck@77.51.218.182:554/cam/realmonitor?channel={}&subtype=00",
-    "Скандинавия": "rtsp://admin:6J5W-wck@178.140.203.115:554/cam/realmonitor?channel={}&subtype=00",
+    "Подольск": "rtsp://admin:6J5W-wck@95.73.83.249:554/cam/realmonitor?channel={}&subtype=00",
+    "Скандинавия": "rtsp://admin:6J5W-wck@178.140.172.225:554/cam/realmonitor?channel={}&subtype=00",
     "Щербинка": "rtsp://admin:6J5W-wck@87.239.29.249:554/cam/realmonitor?channel={}&subtype=00",
     "Эталон": "rtsp://admin:6J5W-wck@87.239.29.42:554/cam/realmonitor?channel={}&subtype=00",
     "Ясенево": "rtsp://admin:6J5W-wck@95.143.218.198:554/cam/realmonitor?channel={}&subtype=00"
@@ -213,9 +213,9 @@ def check_camera(
     """
     # Увеличиваем таймауты и число попыток для Подольска, Эталона и Скандинавии,
     # а также проверяем больше кадров после короткого прогрева
-    is_podolsk = "77.51.218.182" in url
+    is_podolsk = "95.73.83.249" in url
     is_etalon = "87.239.29.42" in url
-    is_skandinavia = "178.140.203.115" in url
+    is_skandinavia = "178.140.172.225" in url
 
     if is_podolsk:
         timeout = max(timeout, 30)
@@ -465,9 +465,9 @@ def check_branch_cameras(branch_name: str, base_url: str, cameras_to_check: Set[
     """
     results: Dict[int, Dict[str, any]] = {}
     with _lock_for_rtsp_host(base_url):
-        is_podolsk = "77.51.218.182" in base_url
+        is_podolsk = "95.73.83.249" in base_url
         is_etalon = "87.239.29.42" in base_url
-        is_skandinavia = "178.140.203.115" in base_url
+        is_skandinavia = "178.140.172.225" in base_url
 
         if is_podolsk:
             logging.info(f"Подольск: начинаем проверку {len(cameras_to_check)} камер")
